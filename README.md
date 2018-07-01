@@ -13,12 +13,39 @@ Things you may want to cover:
 
 * Database creation
 
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|user_id|reference|null: false, foreign_key: true|
+|message_id|reference|null: false, foreign_key: true|
+
+### Association
+- has_many :members
+
+
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|group_id|reference|null: false, foreign_key: true|
+|message_id|reference|null: false, foreign_key: true|
+
+### Association
+- has_many :members
+- has_many :voices
+
+
 ## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -29,44 +56,38 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-|content|text|null: false|
+|content|text||
 |image|text||
-|created_at|timestamp|null: false|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
+- has_many :voices
 - belongs_to :user
 
 
-## groupsテーブル   ▶チャットグループの管理
+## voicesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
-|name|string|null: false|
-|message_id|integer|null: false, foreign_key: true|
-|member_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|message_id|reference|null: false, foreign_key: true|
 
 ### Association
-- has_many :users
-- has_many :messages
+- belongs_to :user
+- belongs_to :message
 
 
-## usersテーブル    ▶︎登録ユーザーの管理
+## chatsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
-|name|string|null: false|
-|Email|string|null: false|
-|password|string|null: false|
-|group_id|integer|null: false, foreign_key: true|
+|message_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 
 ### Association
+- belongs_to :message
 - belongs_to :group
-- has_many :messages
 
 
 * Database initialization
