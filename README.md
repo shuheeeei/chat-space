@@ -23,6 +23,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :members
+- has_many :chats
 
 
 ## usersテーブル
