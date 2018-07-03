@@ -23,7 +23,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :members
-- has_many :chats
+- has_many :message_groups
 
 
 ## usersテーブル
@@ -38,7 +38,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :members
-- has_many :voices
+- has_many :user_messages
 
 
 ## membersテーブル
@@ -63,11 +63,11 @@ Things you may want to cover:
 |group_id|reference|null: false, foreign_key: true|
 
 ### Association
-- has_many :voices
+- has_many :user_messages
 - belongs_to :user
 
 
-## voicesテーブル
+## user_messageテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -79,7 +79,7 @@ Things you may want to cover:
 - belongs_to :message
 
 
-## chatsテーブル
+## message_groupテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -89,6 +89,12 @@ Things you may want to cover:
 ### Association
 - belongs_to :message
 - belongs_to :group
+
+
+
+
+
+
 
 
 * Database initialization
