@@ -22,8 +22,8 @@ Things you may want to cover:
 |message_id|reference|null: false, foreign_key: true|
 
 ### Association
+- has_many :messages
 - has_many :members
-- has_many :message_groups
 
 
 ## usersテーブル
@@ -37,8 +37,8 @@ Things you may want to cover:
 |message_id|reference|null: false, foreign_key: true|
 
 ### Association
+- has_many :messages
 - has_many :members
-- has_many :user_messages
 
 
 ## membersテーブル
@@ -57,40 +57,14 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|content|text||
-|image|text||
+|body|text||
+|image|string||
 |user_id|reference|null: false, foreign_key: true|
 |group_id|reference|null: false, foreign_key: true|
 
 ### Association
-- has_many :user_messages
 - belongs_to :user
-
-
-## user_messageテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
-|message_id|reference|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :message
-
-
-## message_groupテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|message_id|reference|null: false, foreign_key: true|
-|group_id|reference|null: false, foreign_key: true|
-
-### Association
-- belongs_to :message
 - belongs_to :group
-
-
 
 
 
