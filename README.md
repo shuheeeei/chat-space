@@ -18,12 +18,12 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|reference|null: false, foreign_key: true|
 |message_id|reference|null: false, foreign_key: true|
 
 ### Association
 - has_many :messages
 - has_many :members
+- has_many :users, through: :members
 
 
 ## usersテーブル
@@ -31,14 +31,13 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|email|string|null: false, unique: true|
-|password|string|null: false|
 |group_id|reference|null: false, foreign_key: true|
 |message_id|reference|null: false, foreign_key: true|
 
 ### Association
 - has_many :messages
 - has_many :members
+- has_many :groups, through: :members
 
 
 ## membersテーブル
@@ -66,17 +65,3 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :group
 
-
-
-
-
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
