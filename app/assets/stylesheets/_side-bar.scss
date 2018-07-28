@@ -1,0 +1,42 @@
+.side-bar {
+  float: left;
+  background-color: #2f3e51;
+  width: 300px;
+  height: 100vh;
+  &__user {
+    color: $side-font-color;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 100px;
+    height: 100px;
+    background-color: #253141;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    &__name {
+      float: left;
+    }
+    &__edit-icon {
+      float: right;
+      font-size: 20px;
+      a {
+        color: $side-font-color;
+        @include link-style;
+      }
+    }
+  }
+
+  &__chat {
+    margin-bottom: 40px;
+    padding: 0 20px;
+    &__title {
+      margin-bottom: 5px;
+      font-size: 15px;
+      color: $side-font-color;
+    }
+    &__message {
+      font-size: 11px;
+      color: $side-font-color;
+    }
+  }
+}
+
