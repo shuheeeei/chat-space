@@ -28,6 +28,9 @@
   &__chat {
     margin-bottom: 40px;
     padding: 0 20px;
+    a {
+      @include link-style;
+    }
     &__title {
       margin-bottom: 5px;
       font-size: 15px;

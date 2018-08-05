@@ -4,7 +4,7 @@
       %p
         sampleグループ
     .chat-monitor__group-details__edit
-      = link_to "http://www.google.com" do
+      = link_to edit_group_path(current_user) do
         %span
           Edit
   .chat-monitor__content
@@ -13,6 +13,12 @@
     = render partial: "messages", locals: {user_name: "ryosukemaehira", sending_time: "2016/10/02 06:27:30", message: "お腹すいた"}
 
   .chat-monitor__sending-massage
+    / = form_for(@message), action:  do |f|
+    /   = f.text_field class: "form--textarea", placeholder: "type a message", name: "file"
+    /   = f.label class: "fa fa-picture-o upload-label", for: "upload-icon"
+    /   = f.text_field id: "upload-icon", style: "display:none"
+    /   = f.submit class: "form--button", value: "Send"
+
     %form
       %input.form--textarea{type: "text", placeholder: "type a message", name: "file",action: "/"}
       %label.upload-label{for: "upload-icon"}
