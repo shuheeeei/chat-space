@@ -13,15 +13,14 @@
     = render partial: "messages", locals: {user_name: "ryosukemaehira", sending_time: "2016/10/02 06:27:30", message: "お腹すいた"}
 
   .chat-monitor__sending-massage
-    / = form_for(@message), action:  do |f|
-    /   = f.text_field class: "form--textarea", placeholder: "type a message", name: "file"
-    /   = f.label class: "fa fa-picture-o upload-label", for: "upload-icon"
-    /   = f.text_field id: "upload-icon", style: "display:none"
-    /   = f.submit class: "form--button", value: "Send"
 
-    %form
-      %input.form--textarea{type: "text", placeholder: "type a message", name: "file",action: "/"}
-      %label.upload-label{for: "upload-icon"}
-        %i.fa.fa-picture-o
-      %input{type: "file", id: "upload-icon", style: "display:none"}
-      %input.form--button{type: "submit", value: "Send"}
+
+  .chat-monitor
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'upload-icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

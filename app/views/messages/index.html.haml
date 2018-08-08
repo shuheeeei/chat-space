@@ -1,7 +1,32 @@
-/ .notice-bar
-/   %span
-/     チャットグループが作成されました。
+
 
 = render partial: "shared/side-bar"
 
-= render partial: "shared/chat"
+.chat-monitor
+  .chat-monitor__group-details
+    .chat-monitor__group-details__name
+      %p
+        sampleグループ
+    .chat-monitor__group-details__edit
+      = link_to edit_group_path(current_user) do
+        %span
+          Edit
+  .chat-monitor__content
+    = render @messages
+
+  .chat-monitor
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'upload-icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
+
+    / %form
+    /   %input.form--textarea{type: "text", placeholder: "type a message", name: "file",action: "/"}
+    /   %label.upload-label{for: "upload-icon"}
+    /     %i.fa.fa-picture-o
+    /   %input{type: "file", id: "upload-icon", style: "display:none"}
+    /   %input.form--button{type: "submit", value: "Send"}

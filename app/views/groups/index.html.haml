@@ -1,3 +1,15 @@
 .wrapper
 
   = render 'shared/side-bar'
+
+.chat-monitor
+  .chat-monitor__group-details
+    .chat-monitor__group-details__name
+      %p
+        = @group.name
+    .chat-monitor__group-details__edit
+      = link_to edit_group_path(current_user) do
+        %span
+          Edit
+  .chat-monitor__content
+    = render partial: 'messages/message', collection: @messages

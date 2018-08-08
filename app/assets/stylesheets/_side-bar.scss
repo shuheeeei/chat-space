@@ -26,7 +26,7 @@
   }
 
   &__chat {
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     padding: 0 20px;
     a {
       @include link-style;
@@ -39,6 +39,7 @@
     &__message {
       font-size: 11px;
       color: $side-font-color;
+      margin-bottom: 40px;
     }
   }
 }
