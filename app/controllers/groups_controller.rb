@@ -2,7 +2,8 @@ class GroupsController < ApplicationController
 before_action :set_group, only: [:edit, :update]
 
   def index
-    @group = Group.find(current_user.id)
+    redirect_to root_path unless user_signed_in?
+    # @group = Group.find(current_user.id)
   end
 
   def new
