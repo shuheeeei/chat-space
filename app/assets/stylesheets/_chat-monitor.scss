@@ -12,7 +12,7 @@
     &__name {
       float: left;
       width: 40%;
-      padding: 35px 0 15px 0;
+      padding: 35px 0 0 0;
       font-size: 20px;
       color: #333333;
         &:after {
@@ -34,7 +34,9 @@
   }
 
   &__content {
+    overflow: scroll;
     height: calc(100vh - 100px - 90px - 46px);
+    width: calc(100vw - 300px);
     padding: 46px 40px 0;
     &__details {
       @include clearfix;
