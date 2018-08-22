@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var content = (message.content == null ? '' : message.content);
+    var content = message.content;
     var image = (message.image == null ? '' : message.image);
     var html = `<div class="chat-monitor__content__details">
                   <div class="chat-monitor__content__details__user-name">
@@ -15,6 +15,11 @@ $(function(){
                   </div>
                 </div>`
     return html;
+  }
+
+  function scrollBottom(){
+    var position = $(".chat-monitor__content")[0].scrollHeight;
+    $('.chat-monitor__content').animate({scrollTop: position}, 800);
   }
 
   $('#new_message').on('submit', function(e){
@@ -32,9 +37,9 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-monitor__content').append(html);
-      $('.form__message').val('');
+      scrollBottom();
+      $('#new_message')[0].reset();
       $(".form__submit").prop("disabled", false);
-      $('.chat-monitor__content').animate({scrollTop: 613}, 500, 'linear');
     })
     .fail(function(){
       alert('メッセージを入力してください');

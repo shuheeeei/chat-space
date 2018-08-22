@@ -23,10 +23,3 @@
           = fa_icon 'picture-o', class: 'upload-icon'
           = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'form__submit'
-
-    / %form
-    /   %input.form--textarea{type: "text", placeholder: "type a message", name: "file",action: "/"}
-    /   %label.upload-label{for: "upload-icon"}
-    /     %i.fa.fa-picture-o
-    /   %input{type: "file", id: "upload-icon", style: "display:none"}
-    /   %input.form--button{type: "submit", value: "Send"}
