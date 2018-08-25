@@ -21,8 +21,3 @@
   }
 }
 
-@mixin chat-monitor--current-group-member($content) {
-  content: $content;
-  font-size: 12px;
-  color: #999999;
-}

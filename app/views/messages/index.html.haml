@@ -8,9 +8,14 @@
       %p
         = @group.name
     .chat-monitor__group-details__edit
-      = link_to edit_group_path(current_user) do
+      = link_to edit_group_path(@group.id) do
         %span
           Edit
+    .chat-monitor__group-details__member
+      %p
+        Member:
+        - @group.users.each do |group|
+          = group.name
   .chat-monitor__content
     = render partial: 'message', collection: @messages
 
