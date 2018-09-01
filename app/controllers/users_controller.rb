@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_users, only: [:index, :edit]
 
   def index
   end
@@ -12,6 +13,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def set_users
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
   private
