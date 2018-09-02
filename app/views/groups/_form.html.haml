@@ -32,7 +32,7 @@
           .chat-group-user.clearfix#chat-group-user-22
             %p.chat-group-user__name
               = member.name
-              = f.hidden_field :"user_ids][", value: member.id
+              = f.hidden_field :user_id, name: "group[user_ids][]", value: member.id
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
