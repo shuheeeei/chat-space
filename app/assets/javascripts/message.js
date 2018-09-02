@@ -57,14 +57,12 @@ $(function(){
       else {
         var message_id = 0;
       }
-
       $.ajax({
         url: location.href,
         type: 'GET',
         data: {id: message_id},
         dataType: 'json'
       })
-
       .done(function(data) {
         var insertHTML = '';
         console.log(data);
@@ -80,8 +78,5 @@ $(function(){
       });
     } else {
       clearInerval(interval);
-    }}, 2000);
-
-
-
+    }}, 5000);
 });
