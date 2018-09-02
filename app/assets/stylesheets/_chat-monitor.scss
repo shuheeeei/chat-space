@@ -11,13 +11,10 @@
     background-color: #FFFFFF;
     &__name {
       float: left;
-      width: 40%;
+      width: calc(100% - 120px);
       padding: 35px 0 0 0;
       font-size: 20px;
       color: #333333;
-        &:after {
-          @include chat-monitor--current-group-member("Member:ryousukemaehira");
-        }
     }
     &__edit {
       float: right;
@@ -31,12 +28,17 @@
           @include link-style;
         }
     }
+    &__member {
+      color: #999999;
+      font-size: 12px;
+      float: left;
+      margin-top: 15px;
+    }
   }
 
   &__content {
     overflow: scroll;
     height: calc(100vh - 100px - 90px - 46px);
-    width: calc(100vw - 300px);
     padding: 46px 40px 0;
     &__details {
       @include clearfix;
@@ -67,19 +69,30 @@
     background-color: #F5F5F5;
     box-sizing: border-box;
     height: 90px;
-    padding: 20px 50px 20px 40px;
+    padding: 20px 40px;
     &__message {
       border:none;
       float: left;
       height: 50px;
       padding-left: 10px;
+      width: calc(100% - 115px);
+      z-index: 100;
+      position: relative;
     }
     &__mask {
-      background-color: #FFFFFF;
+      background-color: none;
       float: left;
+      height: 40px;
+      width: 20px;
       padding-right: 10px;
+      z-index: 200;
+      position: relative;
+      top: 5px;
+      right: 30px;
       &__image {
+        height: 30px;
         font-size: 20px;
+        line-height: 40px;
       }
       .hidden {
         display: none;
@@ -93,7 +106,9 @@
       font-size: 16px;
       height: 50px;
       margin-left: 15px;
-      padding: 0 30px;
+      padding: 0 25px;
+      position: relative;
+      top: -50px;
     }
   }
 }
